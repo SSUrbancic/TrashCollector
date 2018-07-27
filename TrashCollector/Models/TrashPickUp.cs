@@ -9,6 +9,7 @@ namespace TrashCollector.Models
 {
     public class TrashPickUp
     {
+        [Key]
         public int pickUpID { get; set; }
         public int customerID { get; set; }
         public DateTime date { get; set; }
