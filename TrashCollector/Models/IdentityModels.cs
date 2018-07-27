@@ -30,9 +30,7 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
-        //public DbSet<Customer> customer { get; set; }
-        //public DbSet<Employee> employee { get; set; }
-        //public DbSet<TrashPickUp> trashPickUp { get; set; }
+
 
         public System.Data.Entity.DbSet<TrashCollector.Models.Employee> Employees { get; set; }
 

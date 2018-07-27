@@ -11,7 +11,9 @@ namespace TrashCollector.Models
     {
         [Key]
         public int employeeID { get; set; }
+        [Display(Name = "First Name: ")]
         public string firstName { get; set; }
+        [Display(Name = "Last Name: ")]
         public string lastName { get; set; }
         public string userID { get; set; }
 
