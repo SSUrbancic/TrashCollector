@@ -35,5 +35,7 @@ namespace TrashCollector.Models
         DbSet<TrashPickUp> trashPickUp { get; set; }
 
         public System.Data.Entity.DbSet<TrashCollector.Models.Employee> Employees { get; set; }
+
+        public System.Data.Entity.DbSet<TrashCollector.Models.Customer> Customers { get; set; }
     }
 }
