@@ -304,6 +304,7 @@
     <Content Include="Views\TrashPickUps\Details.cshtml" />
     <Content Include="Views\TrashPickUps\Edit.cshtml" />
     <Content Include="Views\TrashPickUps\Index.cshtml" />
+    <Content Include="Views\CreateCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
