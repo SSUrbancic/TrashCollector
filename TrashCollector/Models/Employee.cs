@@ -13,5 +13,7 @@ namespace TrashCollector.Models
         public int employeeID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
+        public string userID { get; set; }
+
     }
 }

@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201807271250124_AddedUserRoleToUserTable.Designer.cs">
       <DependentUpon>201807271250124_AddedUserRoleToUserTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.cs" />
+    <Compile Include="Migrations\201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.Designer.cs">
+      <DependentUpon>201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -301,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807271250124_AddedUserRoleToUserTable.resx">
       <DependentUpon>201807271250124_AddedUserRoleToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.resx">
+      <DependentUpon>201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
