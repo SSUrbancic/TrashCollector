@@ -1,0 +1,127 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using TrashCollector.Models;
+
+namespace TrashCollector.Controllers
+{
+    public class TrashPickUpsController : Controller
+    {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: TrashPickUps
+        public ActionResult Index()
+        {
+            return View(db.TrashPickUps.ToList());
+        }
+
+        // GET: TrashPickUps/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TrashPickUp trashPickUp = db.TrashPickUps.Find(id);
+            if (trashPickUp == null)
+            {
+                return HttpNotFound();
+            }
+            return View(trashPickUp);
+        }
+
+        // GET: TrashPickUps/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: TrashPickUps/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "pickUpID,customerID,date,dayOfWeek,pickUpCompleted,price")] TrashPickUp trashPickUp)
+        {
+            if (ModelState.IsValid)
+            {
+                db.TrashPickUps.Add(trashPickUp);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(trashPickUp);
+        }
+
+        // GET: TrashPickUps/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TrashPickUp trashPickUp = db.TrashPickUps.Find(id);
+            if (trashPickUp == null)
+            {
+                return HttpNotFound();
+            }
+            return View(trashPickUp);
+        }
+
+        // POST: TrashPickUps/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "pickUpID,customerID,date,dayOfWeek,pickUpCompleted,price")] TrashPickUp trashPickUp)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(trashPickUp).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(trashPickUp);
+        }
+
+        // GET: TrashPickUps/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TrashPickUp trashPickUp = db.TrashPickUps.Find(id);
+            if (trashPickUp == null)
+            {
+                return HttpNotFound();
+            }
+            return View(trashPickUp);
+        }
+
+        // POST: TrashPickUps/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            TrashPickUp trashPickUp = db.TrashPickUps.Find(id);
+            db.TrashPickUps.Remove(trashPickUp);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}
