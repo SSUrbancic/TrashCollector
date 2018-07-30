@@ -50,10 +50,10 @@ namespace TrashCollector.Controllers
         public ActionResult Create([Bind(Include = "pickUpID,date,dayOfWeek")] TrashPickUp trashPickUp)
         {
             string userID = User.Identity.GetUserId();
-            int customerId = (db.Customers.Where(x => x.userID.Equals(userID)).Select(x => x.ID)).First();
+            Customer customer = db.Customers.Where(x => x.userID == userID).Select(x => x).First();
             if (ModelState.IsValid)
             {
-                trashPickUp.CustomerID = customerId;
+                trashPickUp.CustomerID = customer.ID;
                 db.TrashPickUps.Add(trashPickUp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
