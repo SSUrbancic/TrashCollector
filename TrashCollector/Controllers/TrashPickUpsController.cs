@@ -20,6 +20,10 @@ namespace TrashCollector.Controllers
         {
             return View(db.TrashPickUps.ToList());
         }
+        public ActionResult EmployeePickUps()
+        {
+            return View(db.TrashPickUps.ToList());
+        }
 
         // GET: TrashPickUps/Details/5
         public ActionResult Details(int? id)

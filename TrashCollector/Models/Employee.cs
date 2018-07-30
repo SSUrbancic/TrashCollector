@@ -15,6 +15,7 @@ namespace TrashCollector.Models
         public string firstName { get; set; }
         [Display(Name = "Last Name: ")]
         public string lastName { get; set; }
+        public int AssignedZipCode { get; set; }
         public string userID { get; set; }
 
     }
