@@ -1,12 +1,15 @@
-﻿@model IEnumerable<TrashCollector.Models.Employee>
+﻿@model TrashCollector.Models.Employee
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
+@Model.employeeID
 <p>
     @Html.ActionLink("View Pick Ups", "EmployeePickUps", "TrashPickUps")
+</p>
+<p>
+    @Html.ActionLink("Edit Employee Info", "Edit", new { id = Model.employeeID })
 </p>
 

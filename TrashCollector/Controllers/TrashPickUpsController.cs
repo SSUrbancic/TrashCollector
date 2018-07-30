@@ -22,7 +22,10 @@ namespace TrashCollector.Controllers
         }
         public ActionResult EmployeePickUps()
         {
-            return View(db.TrashPickUps.ToList());
+            string userID = User.Identity.GetUserId();
+            Employee employee = db.Employees.Where(x => x.userID == userID).Select(x => x).First();
+            var employeePickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == employee.AssignedZipCode);
+            return View(employeePickUps.ToList());
         }
 
         // GET: TrashPickUps/Details/5
