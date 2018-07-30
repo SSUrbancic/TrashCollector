@@ -20,12 +20,31 @@ namespace TrashCollector.Controllers
         {
             return View(db.TrashPickUps.ToList());
         }
-        public ActionResult EmployeePickUps()
+        public ViewResult EmployeePickUps(string day)
         {
+            List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wendsday", "Thursday", "Friday", "Saturday", "Sunday" };
+            ViewBag.days = new SelectList(daysOfTheWeek);
             string userID = User.Identity.GetUserId();
             Employee employee = db.Employees.Where(x => x.userID == userID).Select(x => x).First();
             var employeePickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == employee.AssignedZipCode);
+            if(day != null)
+            {
+                employeePickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == employee.AssignedZipCode).Where(x => x.dayOfWeek == day);
+            }
             return View(employeePickUps.ToList());
+        }
+        public ViewResult CustomerPickUps(string day)
+        {
+            List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wendsday", "Thursday", "Friday", "Saturday", "Sunday" };
+            ViewBag.days = new SelectList(daysOfTheWeek);
+            string userID = User.Identity.GetUserId();
+            Customer customer = db.Customers.Where(x => x.userID == userID).Select(x => x).First();
+            var customerPickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == customer.zipCode);
+            if (day != null)
+            {
+                customerPickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == customer.zipCode).Where(x => x.dayOfWeek == day);
+            }
+            return View(customerPickUps.ToList());
         }
 
         // GET: TrashPickUps/Details/5

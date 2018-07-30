@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TrashCollector.Models.TrashPickUp>
+
+@{
+    ViewBag.Title = "CustomerPickUps";
+}
+
+<h2>CustomerPickUps</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find By Name: @Html.DropDownList("day", (SelectList)ViewBag.days)
+        <input type="submit" value="Day Of The Week" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dayOfWeek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pickUpCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dayOfWeek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickUpCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.pickUpID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.pickUpID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.pickUpID })
+            </td>
+        </tr>
+    }
+
+</table>
