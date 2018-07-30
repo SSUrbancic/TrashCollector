@@ -204,21 +204,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807270246252_InitalMigration.cs" />
-    <Compile Include="Migrations\201807270246252_InitalMigration.Designer.cs">
-      <DependentUpon>201807270246252_InitalMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201807301738464_InitialMigration.cs" />
+    <Compile Include="Migrations\201807301738464_InitialMigration.Designer.cs">
+      <DependentUpon>201807301738464_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807271250124_AddedUserRoleToUserTable.cs" />
-    <Compile Include="Migrations\201807271250124_AddedUserRoleToUserTable.Designer.cs">
-      <DependentUpon>201807271250124_AddedUserRoleToUserTable.cs</DependentUpon>
+    <Compile Include="Migrations\201807301903099_RecreatedTrashPickUp.cs" />
+    <Compile Include="Migrations\201807301903099_RecreatedTrashPickUp.Designer.cs">
+      <DependentUpon>201807301903099_RecreatedTrashPickUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.cs" />
-    <Compile Include="Migrations\201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.Designer.cs">
-      <DependentUpon>201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807271510513_AddedModelControllers.cs" />
-    <Compile Include="Migrations\201807271510513_AddedModelControllers.Designer.cs">
-      <DependentUpon>201807271510513_AddedModelControllers.cs</DependentUpon>
+    <Compile Include="Migrations\201807301906505_AddedFKOfUserToCustomerTable.cs" />
+    <Compile Include="Migrations\201807301906505_AddedFKOfUserToCustomerTable.Designer.cs">
+      <DependentUpon>201807301906505_AddedFKOfUserToCustomerTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -322,17 +318,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807270246252_InitalMigration.resx">
-      <DependentUpon>201807270246252_InitalMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807301738464_InitialMigration.resx">
+      <DependentUpon>201807301738464_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807271250124_AddedUserRoleToUserTable.resx">
-      <DependentUpon>201807271250124_AddedUserRoleToUserTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807301903099_RecreatedTrashPickUp.resx">
+      <DependentUpon>201807301903099_RecreatedTrashPickUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.resx">
-      <DependentUpon>201807271357365_AddedUserIDPropertyToEmployeeAndCustomerModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807271510513_AddedModelControllers.resx">
-      <DependentUpon>201807271510513_AddedModelControllers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807301906505_AddedFKOfUserToCustomerTable.resx">
+      <DependentUpon>201807301906505_AddedFKOfUserToCustomerTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -19,6 +19,8 @@ namespace TrashCollector.Models
         public string state { get; set; }
         public int zipCode { get; set; }
         public double paymentBalance { get; set; }
+        [ForeignKey("ApplicationUser")]
         public string userID { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

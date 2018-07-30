@@ -16,14 +16,6 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.customerID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.customerID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.customerID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control" } })
@@ -34,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.dayOfWeek, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.dayOfWeek, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.dayOfWeek, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.dayOfWeek, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -46,10 +47,13 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "pickUpID,customerID,date,dayOfWeek,pickUpCompleted,price")] TrashPickUp trashPickUp)
+        public ActionResult Create([Bind(Include = "pickUpID,date,dayOfWeek")] TrashPickUp trashPickUp)
         {
+            string userID = User.Identity.GetUserId();
+            int customerId = (db.Customers.Where(x => x.userID.Equals(userID)).Select(x => x.ID)).First();
             if (ModelState.IsValid)
             {
+                trashPickUp.CustomerID = customerId;
                 db.TrashPickUps.Add(trashPickUp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,7 +82,7 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "pickUpID,customerID,date,dayOfWeek,pickUpCompleted,price")] TrashPickUp trashPickUp)
+        public ActionResult Edit([Bind(Include = "pickUpID,date,dayOfWeek,pickUpCompleted,price")] TrashPickUp trashPickUp)
         {
             if (ModelState.IsValid)
             {

@@ -54,6 +54,7 @@ namespace TrashCollector.Controllers
             if (ModelState.IsValid)
             {
                 employee.userID = currentUserId;
+                db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
