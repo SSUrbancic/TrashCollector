@@ -1,0 +1,122 @@
+﻿@model TrashCollector.Models.TrashPickUp
+
+@{
+    ViewBag.Title = "EmployeeViewForPickUpDetails";
+}
+
+<h2>Pick Up Details</h2>
+
+<div>
+    <h4>Customer Info and Address</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dayOfWeek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dayOfWeek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pickUpCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pickUpCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.addressLine1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.addressLine1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.addessLine2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.addessLine2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.zipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.zipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.paymentBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.paymentBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.RecurringPickUpDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.RecurringPickUpDay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pickUpID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

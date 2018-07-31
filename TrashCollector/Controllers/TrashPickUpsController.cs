@@ -36,6 +36,20 @@ namespace TrashCollector.Controllers
             }
             return View(employeePickUps.ToList());
         }
+        public ActionResult EmployeeViewForPickUpDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var trashPickUp = db.TrashPickUps.Where(x => x.pickUpID == id).Include(x => x.Customer).First();           
+
+            if (trashPickUp == null)
+            {
+                return HttpNotFound();
+            }
+            return View(trashPickUp);
+        }
         public ViewResult CustomerPickUps(string day)
         {
             List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wendsday", "Thursday", "Friday", "Saturday", "Sunday" };
