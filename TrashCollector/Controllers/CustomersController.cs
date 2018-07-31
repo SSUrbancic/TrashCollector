@@ -23,8 +23,10 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
+            var currentUserID = User.Identity.GetUserId();
+            int? id = db.Customers.Where(x => x.userID == currentUserID).Select(x => x.ID).First();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -48,7 +50,7 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,firstName,lastName,addressLine1,addessLine2,city,state,zipCode")] Customer customer)
+        public ActionResult Create([Bind(Include = "ID,firstName,lastName,addressLine1,addessLine2,city,state,zipCode,RecurringPickUpDay")] Customer customer)
         {
             string currentUserId = User.Identity.GetUserId();
             if (ModelState.IsValid)
@@ -84,7 +86,7 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,addressLine1,addessLine2,city,state,zipCode,paymentBalance")] Customer customer)
+        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,addressLine1,addessLine2,city,state,zipCode,paymentBalance,RecurringPickUpDay,userID")] Customer customer)
         {
             if (ModelState.IsValid)
             {
