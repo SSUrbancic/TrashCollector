@@ -63,8 +63,10 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customers/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
+            var currentUserID = User.Identity.GetUserId();
+            int? id = db.Customers.Where(x => x.userID == currentUserID).Select(x => x.ID).First();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -82,7 +84,7 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,addressLine1,addessLine2,city,state,zipCode,paymentBalance,userID")] Customer customer)
+        public ActionResult Edit([Bind(Include = "ID,firstName,lastName,addressLine1,addessLine2,city,state,zipCode,paymentBalance")] Customer customer)
         {
             if (ModelState.IsValid)
             {
