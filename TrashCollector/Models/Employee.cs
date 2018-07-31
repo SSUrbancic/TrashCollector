@@ -10,11 +10,13 @@ namespace TrashCollector.Models
     public class Employee
     {
         [Key]
+        [Display(Name = "Employee ID")]
         public int employeeID { get; set; }
-        [Display(Name = "First Name: ")]
+        [Display(Name = "First Name ")]
         public string firstName { get; set; }
-        [Display(Name = "Last Name: ")]
+        [Display(Name = "Last Name ")]
         public string lastName { get; set; }
+        [Display(Name = "Assigned Zip Code")]
         public int AssignedZipCode { get; set; }
         public string userID { get; set; }
 

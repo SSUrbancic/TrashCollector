@@ -220,6 +220,14 @@
     <Compile Include="Migrations\201807302113549_AddedAssignedZipCodeToEmployeeModel.Designer.cs">
       <DependentUpon>201807302113549_AddedAssignedZipCodeToEmployeeModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807311359486_UpdatedFKCustIDInTrashPickUpTable.cs" />
+    <Compile Include="Migrations\201807311359486_UpdatedFKCustIDInTrashPickUpTable.Designer.cs">
+      <DependentUpon>201807311359486_UpdatedFKCustIDInTrashPickUpTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807311411534_UpdatedDisplayNames.cs" />
+    <Compile Include="Migrations\201807311411534_UpdatedDisplayNames.Designer.cs">
+      <DependentUpon>201807311411534_UpdatedDisplayNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -335,6 +343,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807302113549_AddedAssignedZipCodeToEmployeeModel.resx">
       <DependentUpon>201807302113549_AddedAssignedZipCodeToEmployeeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311359486_UpdatedFKCustIDInTrashPickUpTable.resx">
+      <DependentUpon>201807311359486_UpdatedFKCustIDInTrashPickUpTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311411534_UpdatedDisplayNames.resx">
+      <DependentUpon>201807311411534_UpdatedDisplayNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

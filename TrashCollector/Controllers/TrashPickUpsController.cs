@@ -22,11 +22,14 @@ namespace TrashCollector.Controllers
         }
         public ViewResult EmployeePickUps(string day)
         {
+            DateTime today = DateTime.Today;
+            string d = today.DayOfWeek.ToString();
+
             List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wendsday", "Thursday", "Friday", "Saturday", "Sunday" };
             ViewBag.days = new SelectList(daysOfTheWeek);
             string userID = User.Identity.GetUserId();
             Employee employee = db.Employees.Where(x => x.userID == userID).Select(x => x).First();
-            var employeePickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == employee.AssignedZipCode);
+            var employeePickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == employee.AssignedZipCode).Where(x => x.dayOfWeek == d);
             if(day != null)
             {
                 employeePickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == employee.AssignedZipCode).Where(x => x.dayOfWeek == day);
@@ -100,6 +103,7 @@ namespace TrashCollector.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CustomerID = new SelectList(db.Customers, "ID", "FirstName", trashPickUp.CustomerID);
             return View(trashPickUp);
         }
 

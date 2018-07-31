@@ -24,8 +24,24 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Manage Customer Account", "Index", "Customers")</li>
-                    <li>@Html.ActionLink("Manage Employee Account", "Index", "Employees")</li>
+                    @if (User.IsInRole("Employee") || User.IsInRole("Customer"))
+                    {
+                    <li class="nav-item dropdown">
+                        <a class="navbar-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbardrop">System Actions</a>
+                        @if (User.IsInRole("Employee"))
+                        {
+                            <div class="dropdown-menu">
+                                @Html.ActionLink("Manage Employee Account", "Index", "Employees")
+                            </div>
+                        }
+                        else if (User.IsInRole("Customer"))
+                        {
+                            <div class="dropdown-menu">
+                            @Html.ActionLink("Manage Customer Account", "Index", "Customers")
+                            </div>
+                        }
+                    </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -11,13 +11,21 @@ namespace TrashCollector.Models
     {
         [Key]
         public int ID { get; set; }
+        [Display(Name = "First Name")]
         public string firstName { get; set; }
+        [Display(Name = "Last Name")]
         public string lastName { get; set; }
+        [Display(Name = "Address Line 1")]
         public string addressLine1 { get; set; }
+        [Display(Name = "Address Line 2")]
         public string addessLine2 { get; set; }
+        [Display(Name = "City")]
         public string city { get; set; }
+        [Display(Name = "State")]
         public string state { get; set; }
+        [Display(Name = "Zip Code")]
         public int zipCode { get; set; }
+        [Display(Name = "Payment Balance")]
         public double paymentBalance { get; set; }
         [ForeignKey("ApplicationUser")]
         public string userID { get; set; }
