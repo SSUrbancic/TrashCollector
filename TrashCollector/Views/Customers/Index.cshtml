@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TrashCollector.Models.Customer>
+﻿
+@model IEnumerable<TrashCollector.Models.Customer>
 
 @{
     ViewBag.Title = "Index";
@@ -7,12 +8,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New Pick Up", "Create" , "TrashPickUps")
+    @Html.ActionLink("Create New Pick Up", "Create", "TrashPickUps")
 </p>
 <p>
     @Html.ActionLink("View Pick Ups", "CustomerPickUps", "TrashPickUps")
 </p>
-
-
 
 

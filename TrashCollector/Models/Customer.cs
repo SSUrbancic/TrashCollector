@@ -27,6 +27,8 @@ namespace TrashCollector.Models
         public int zipCode { get; set; }
         [Display(Name = "Payment Balance")]
         public double paymentBalance { get; set; }
+        [Display(Name = "Recurring Pick Up Day")]
+        public string RecurringPickUpDay { get; set; }
         [ForeignKey("ApplicationUser")]
         public string userID { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

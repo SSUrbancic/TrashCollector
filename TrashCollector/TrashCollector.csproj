@@ -204,29 +204,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807301738464_InitialMigration.cs" />
-    <Compile Include="Migrations\201807301738464_InitialMigration.Designer.cs">
-      <DependentUpon>201807301738464_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301903099_RecreatedTrashPickUp.cs" />
-    <Compile Include="Migrations\201807301903099_RecreatedTrashPickUp.Designer.cs">
-      <DependentUpon>201807301903099_RecreatedTrashPickUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301906505_AddedFKOfUserToCustomerTable.cs" />
-    <Compile Include="Migrations\201807301906505_AddedFKOfUserToCustomerTable.Designer.cs">
-      <DependentUpon>201807301906505_AddedFKOfUserToCustomerTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807302113549_AddedAssignedZipCodeToEmployeeModel.cs" />
-    <Compile Include="Migrations\201807302113549_AddedAssignedZipCodeToEmployeeModel.Designer.cs">
-      <DependentUpon>201807302113549_AddedAssignedZipCodeToEmployeeModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807311359486_UpdatedFKCustIDInTrashPickUpTable.cs" />
-    <Compile Include="Migrations\201807311359486_UpdatedFKCustIDInTrashPickUpTable.Designer.cs">
-      <DependentUpon>201807311359486_UpdatedFKCustIDInTrashPickUpTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807311411534_UpdatedDisplayNames.cs" />
-    <Compile Include="Migrations\201807311411534_UpdatedDisplayNames.Designer.cs">
-      <DependentUpon>201807311411534_UpdatedDisplayNames.cs</DependentUpon>
+    <Compile Include="Migrations\201807311531014_InitialMigration.cs" />
+    <Compile Include="Migrations\201807311531014_InitialMigration.Designer.cs">
+      <DependentUpon>201807311531014_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -302,11 +282,6 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Customers\Create.cshtml" />
-    <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Customers\Edit.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\TrashPickUps\Create.cshtml" />
     <Content Include="Views\TrashPickUps\Delete.cshtml" />
     <Content Include="Views\TrashPickUps\Details.cshtml" />
@@ -314,6 +289,11 @@
     <Content Include="Views\TrashPickUps\Index.cshtml" />
     <Content Include="Views\TrashPickUps\EmployeePickUps.cshtml" />
     <Content Include="Views\TrashPickUps\CustomerPickUps.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,23 +312,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807301738464_InitialMigration.resx">
-      <DependentUpon>201807301738464_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301903099_RecreatedTrashPickUp.resx">
-      <DependentUpon>201807301903099_RecreatedTrashPickUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301906505_AddedFKOfUserToCustomerTable.resx">
-      <DependentUpon>201807301906505_AddedFKOfUserToCustomerTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807302113549_AddedAssignedZipCodeToEmployeeModel.resx">
-      <DependentUpon>201807302113549_AddedAssignedZipCodeToEmployeeModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807311359486_UpdatedFKCustIDInTrashPickUpTable.resx">
-      <DependentUpon>201807311359486_UpdatedFKCustIDInTrashPickUpTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807311411534_UpdatedDisplayNames.resx">
-      <DependentUpon>201807311411534_UpdatedDisplayNames.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807311531014_InitialMigration.resx">
+      <DependentUpon>201807311531014_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
