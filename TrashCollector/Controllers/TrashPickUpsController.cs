@@ -42,7 +42,7 @@ namespace TrashCollector.Controllers
             ViewBag.days = new SelectList(daysOfTheWeek);
             string userID = User.Identity.GetUserId();
             Customer customer = db.Customers.Where(x => x.userID == userID).Select(x => x).First();
-            var customerPickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == customer.zipCode);
+            var customerPickUps = db.TrashPickUps.Where(x => x.Customer.ID == customer.ID);
             if (day != null)
             {
                 customerPickUps = db.TrashPickUps.Where(x => x.Customer.zipCode == customer.zipCode).Where(x => x.dayOfWeek == day);
