@@ -36,6 +36,11 @@ namespace TrashCollector.Controllers
             }
             return View(employeePickUps.ToList());
         }
+        public ViewResult CustomerEdit()
+        {
+            List<string> stuff = new List<string>() { };
+            return View();
+        }
         public ActionResult EmployeeViewForPickUpDetails(int? id)
         {
             if (id == null)

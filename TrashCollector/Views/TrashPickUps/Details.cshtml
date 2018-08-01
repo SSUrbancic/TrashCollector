@@ -44,6 +44,14 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.pickUpID }) |
+    @if (User.IsInRole("Customer"))
+    {
+        @Html.ActionLink("Edit", "CustomerEdit", new { id = Model.pickUpID })
+    }
+    else
+    {
+        @Html.ActionLink("Edit", "CustomerEdit", new { id = Model.pickUpID })
+    }
+
     @Html.ActionLink("Back to List", "Index")
 </p>

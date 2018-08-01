@@ -200,6 +200,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\TrashPickUpsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -208,12 +209,21 @@
     <Compile Include="Migrations\201807311531014_InitialMigration.Designer.cs">
       <DependentUpon>201807311531014_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808010051051_AddedTransactionModel.cs" />
+    <Compile Include="Migrations\201808010051051_AddedTransactionModel.Designer.cs">
+      <DependentUpon>201808010051051_AddedTransactionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808010117077_NewMigration.cs" />
+    <Compile Include="Migrations\201808010117077_NewMigration.Designer.cs">
+      <DependentUpon>201808010117077_NewMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TrashPickUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -295,6 +305,12 @@
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\TrashPickUps\EmployeeViewForPickUpDetails.cshtml" />
+    <Content Include="Views\Transactions\Create.cshtml" />
+    <Content Include="Views\Transactions\Delete.cshtml" />
+    <Content Include="Views\Transactions\Details.cshtml" />
+    <Content Include="Views\Transactions\Edit.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
+    <Content Include="Views\TrashPickUps\CustomerEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -315,6 +331,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807311531014_InitialMigration.resx">
       <DependentUpon>201807311531014_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808010051051_AddedTransactionModel.resx">
+      <DependentUpon>201808010051051_AddedTransactionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808010117077_NewMigration.resx">
+      <DependentUpon>201808010117077_NewMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

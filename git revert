@@ -1,0 +1,191 @@
+[33mcommit 5a20b899bd1e80a24cbd67b5bbb733c741c7f3a5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Tue Jul 31 15:18:21 2018 -0500
+
+    Added a new view for employees when they view the details of a pick up it will show the customer information along with the regular trash pick up information.
+
+[33mcommit e60eb21913c7833f0f8fbb5f5c23ce90706a81a1[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Tue Jul 31 13:57:11 2018 -0500
+
+    Edit method for customer was deleting the user ID from the customer table. Fixed this by adding userID to the bind of the Post edit method. also added a hiddenfor in the Edit view of the customer model. Recurring pick up day wasn't being created for similar reasons. Didn't have it binded for create or edit methods so I added it to those locations.
+
+[33mcommit 5e23b8c8a0831a3e1953411cc8f3374bc8ae9100[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Tue Jul 31 11:26:51 2018 -0500
+
+    Added an action link to Customer index that allows the customer to edit their profile information as well as change their recurring pick up day. Was sure to take out UserID and Payment Balance from the Edit view.
+
+[33mcommit aa2204bdc91d96895d55675612db0ae81ba1be97[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Tue Jul 31 10:53:32 2018 -0500
+
+    Added a property to the customers model and needed to rescaffold the controller and views for the customer model. Got an error trying to rebuild the controller. Completed it with a work around and made sure to delete the userID and payment balance from the create view for customers.
+
+[33mcommit 7ffe1272c7d4d1aab24dd9f0952820618461b4ee[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Tue Jul 31 09:25:35 2018 -0500
+
+    Updated the CustomerPickUps viewResult in the TrashPickUpsController. Updated the method to look for pickups where the customerID of the current user matches the Customer ID in the TrashPickUps table rather than where the zipcodes match since there could be multiple customers in one zip code.
+
+[33mcommit 99e0478a6cc93f0b367d494b4e8c8883ef2f74a1[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Tue Jul 31 09:20:19 2018 -0500
+
+    Updated the display names in Customer, Employee, and TrashPickUp Models. Added a migration and updated database to implement changes.
+
+[33mcommit 2c1234d9625814e83115d11199773c905657f170[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Mon Jul 30 18:08:04 2018 -0500
+
+    Changed home page display.
+
+[33mcommit e4d9137328fbcbbeb237d2ffcb3235434cc84bbb[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Mon Jul 30 17:45:35 2018 -0500
+
+    Created functionality to only view pick ups that belong to customer or employees with the assigned zip code. Also gave option to search by day of the week for both customers and employees.
+
+[33mcommit c935b8021b21691216b513e4750cbe0cebff50c9[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Mon Jul 30 17:16:50 2018 -0500
+
+    Created functionality for employees viewing pick ups based on zip code.
+
+[33mcommit 244153364417d74eea49a6c25f1384b9d04d4780[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Mon Jul 30 16:17:55 2018 -0500
+
+    Added assigned zip code property to employee model and added functionality to controller and updated employee create and edit views.
+
+[33mcommit 5e6036befc1ad6abcd9dc75598b25bd8081c94dd[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Mon Jul 30 16:04:17 2018 -0500
+
+    Created a button on navbar called manage Employee Account. Created link to display all pick ups.
+
+[33mcommit 87da99be5d27a7389163a64928a427c5155460d9[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Mon Jul 30 15:21:03 2018 -0500
+
+    Added manage customer account with the functionality to be able to create a pick up instance.
+
+[33mcommit f5230a53c5da0f38d58e2c1e1c415926b8396522[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Mon Jul 30 14:44:07 2018 -0500
+
+    Recreated migrations as well as trashpickup controller. Added a foreign key to cutomer and and trashpickup tables. Changed customer index to display a link to creating new trashpickup instead a list of all of the customers. Wasn't able to create a new pick up since the customerID wasn't being populated. Used a linq statement to set variable customerID equal to the customerID of the user creating the pick up. Haven't been able to test functionality yet, need to find a way to access the index page of customer upon logging in so that customers can manipulate the website without seeing everything an employee would as well.
+
+[33mcommit 2bf0a5dfa7fc72c03628b2ec475482a8fab212e6[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 15:32:46 2018 -0500
+
+    Got rid of userID and payment balance in the view tab for creating a new customer since they are automatically set upon creation. Inside of the customerController i set customer.paymentBalance = 0 in the Create method.
+
+[33mcommit 9d9d61f4143bd391e859e92990df10a7314e1d92[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 15:21:29 2018 -0500
+
+    fixed the view for creating employee to not show the userID since it will automatically assigned upon creation. Added a display attribute to the properties for a neater presentation.
+
+[33mcommit bfac59064a314f8732bd22512036a8517d16be43[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 11:35:04 2018 -0500
+
+    Created if else statment in register class in order to create an employee or customer based on what the user input was.
+
+[33mcommit 429502f153a2ee972bad1cf90228bd79562c91ad[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 10:29:07 2018 -0500
+
+    Ran a migration after adding controllers.
+
+[33mcommit 0222a1283214c7b3e6efbb565fd19366bf15d274[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 09:12:48 2018 -0500
+
+    Created scaffolded controller for TrashPickUp model.
+
+[33mcommit c81c2683e034e05ba69a57429b04281bbc14e3d3[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 09:11:47 2018 -0500
+
+    Created scaffolded controller for customer model.
+
+[33mcommit 7a1e1e584301ac868a3378c8c5adacad30b7682e[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 09:10:03 2018 -0500
+
+    Added scaffolded controller for employee model.
+
+[33mcommit 9a0aedb5378eaf0486406734ecbe0b7d2bb87362[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 09:04:39 2018 -0500
+
+    Created a UserID property in the employee and customer model.
+
+[33mcommit f657c1c093f2a3e6be3f1719e71dedf238c556af[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 08:39:42 2018 -0500
+
+    Added UserRole to register mithod in the accoundt controller so that upon creation of the user it is assigned a UserRole.
+
+[33mcommit 45277f7a0f0cd8be77a2d5df4af856104e321bbe[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 08:35:19 2018 -0500
+
+    Added a UserRole property in RegisterViewModel inside of the AccountViewModel. Added a div to the Register.cshtml in order to generate a display for creating userRoles.
+
+[33mcommit 44287517e8ed6e7cd3b48fda6d86d02e30318656[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 08:11:16 2018 -0500
+
+    Added UserRoles column to the AspNetUsers table. Added migrations and updated database.
+
+[33mcommit 7a5d54c4653f6aff5e3290cc3af7681e03365a3a[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Fri Jul 27 07:42:12 2018 -0500
+
+    Created two user roles called employee and customer in the startup.cs document. In the function instantiated the database and used build in functionality to create two roles from the EntityFramwork.
+
+[33mcommit b1b09920f94326057730bd94c19a5e6b6c7d1c20[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Thu Jul 26 21:49:34 2018 -0500
+
+    enabled migrations, got an error that said entity framework wasn't installed in my project. Restarted visualstudio and it seemed to fix the issue, defaultproject dropdown was blank after restarted it, the field was populated with TrashCollector, Enabled migrations, added migration, and updated database.
+
+[33mcommit af428f7d7b58f304070f32181bb350f4ed8295b1[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Thu Jul 26 21:39:57 2018 -0500
+
+    Used Dbset to create customer, employee, and trashPickUp and table
+
+[33mcommit a89c81f7631ed946f47d7f7eb8d01b638edd31b9[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Thu Jul 26 21:36:20 2018 -0500
+
+    Created a trashpickup model with id, foreign key customer id, date, day of the week, puck up completed bool, and price of the pick up.
+
+[33mcommit 9d1f5406bbb0a7f4a3e6f00d254fd56a349ead79[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Thu Jul 26 21:28:30 2018 -0500
+
+    created employee model with ID and name properties.
+
+[33mcommit 9dba88025bc898ae4099f73580e954d36b448e65[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Thu Jul 26 21:24:35 2018 -0500
+
+    Created a customer model with ID, name, address, and payment balance properties.
+
+[33mcommit d2b219866c3ff17fc30527bad5da063a2fff70ec[m
+Author: Sam <SSUrbancic@outlook.com>
+Date:   Thu Jul 26 13:38:16 2018 -0500
+
+    Initial Commit/Push
+
+[33mcommit b17f59f3a448e0139bcbf157b608fe9a4f1b7fc1[m
+Author: SSUrbancic <39102410+SSUrbancic@users.noreply.github.com>
+Date:   Thu Jul 26 13:29:34 2018 -0500
+
+    Initial commit
