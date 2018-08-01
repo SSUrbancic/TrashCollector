@@ -136,6 +136,16 @@ namespace TrashCollector.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(trashPickUp).State = EntityState.Modified;
+                
+                if(trashPickUp.pickUpCompleted == true && User.IsInRole("Employee"))
+                {
+
+                    var transactionAmount = trashPickUp.price;
+                    var customerBalance = db.TrashPickUps.Where(x => x.CustomerID == trashPickUp.CustomerID).Select(x => x.Customer.paymentBalance).First();
+                    var newCustomerBalance = transactionAmount + customerBalance;
+                    var customer = db.TrashPickUps.Where(x => x.pickUpID == trashPickUp.pickUpID).Select(x => x.Customer).First();
+                    customer.paymentBalance = newCustomerBalance;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
