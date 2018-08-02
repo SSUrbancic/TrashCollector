@@ -117,6 +117,20 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.pickUpID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.IsInRole("Customer"))
+    {
+        @Html.ActionLink("Edit", "CustomerEdit", new { id = Model.pickUpID })
+    }
+    else if (User.IsInRole("Employee"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.pickUpID })
+    }
+    @if (User.IsInRole("Customer"))
+    {
+        @Html.ActionLink("Back to List", "CustomerPickUps")
+    }
+    else if (User.IsInRole("Employee"))
+    {
+        @Html.ActionLink("Back to List", "EmployeePickUps")
+    }
 </p>

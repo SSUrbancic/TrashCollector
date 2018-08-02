@@ -47,7 +47,7 @@ namespace TrashCollector.Controllers
             DateTime today = DateTime.Today;
             string d = today.DayOfWeek.ToString();
 
-            List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wendsday", "Thursday", "Friday", "Saturday", "Sunday" };
+            List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             ViewBag.days = new SelectList(daysOfTheWeek);
             string userID = User.Identity.GetUserId();
             Employee employee = db.Employees.Where(x => x.userID == userID).Select(x => x).First();
@@ -79,7 +79,7 @@ namespace TrashCollector.Controllers
         }
         public ViewResult CustomerPickUps(string day)
         {
-            List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wendsday", "Thursday", "Friday", "Saturday", "Sunday" };
+            List<string> daysOfTheWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
             ViewBag.days = new SelectList(daysOfTheWeek);
             string userID = User.Identity.GetUserId();
             Customer customer = db.Customers.Where(x => x.userID == userID).Select(x => x).First();
@@ -126,7 +126,14 @@ namespace TrashCollector.Controllers
                 trashPickUp.CustomerID = customer.ID;
                 db.TrashPickUps.Add(trashPickUp);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                if(User.IsInRole("Customer"))
+                {
+                    return RedirectToAction("CustomerPickUps");
+                }
+                else
+                {
+                    return RedirectToAction("EmployeePickUps");
+                }
             }
 
             return View(trashPickUp);

@@ -48,10 +48,17 @@
     {
         @Html.ActionLink("Edit", "CustomerEdit", new { id = Model.pickUpID })
     }
-    else
+    else if (User.IsInRole("Employee"))
     {
-        @Html.ActionLink("Edit", "CustomerEdit", new { id = Model.pickUpID })
+        @Html.ActionLink("Edit", "Edit", new { id = Model.pickUpID })
+    }
+    @if (User.IsInRole("Customer"))
+    {
+        @Html.ActionLink("Back to List", "CustomerPickUps")
+    }
+    else if(User.IsInRole("Employee"))
+    {
+        @Html.ActionLink("Back to List", "EmployeePickUps")
     }
 
-    @Html.ActionLink("Back to List", "Index")
 </p>

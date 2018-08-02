@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TrashPickUp</h4>
+        <h4>Trash Pick Up</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -40,9 +40,16 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @if (User.IsInRole("Customer"))
+        {
+            @Html.ActionLink("Back to List", "CustomerPickUps")
+        }
+        else
+        {
+            @Html.ActionLink("Back to List", "EmployeePickUps")
+        }
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
