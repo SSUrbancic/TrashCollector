@@ -1,0 +1,125 @@
+﻿@model TrashCollector.Models.TrashPickUp
+@{
+    ViewBag.Title = "GoogleMaps";
+}
+
+<div class="jumbotron">
+    <h1>Google Maps</h1>
+</div>
+
+<div class="row">
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Simple Map</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+            * element that contains the map. */
+            #map {
+                height: 400px;
+                width: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <h4>Customer Info and Address</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dayOfWeek)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dayOfWeek)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.firstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.firstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.lastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.lastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.addressLine1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.addressLine1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.addessLine2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.addessLine2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.city)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.city)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.state)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.state)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.zipCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.zipCode)
+            </dd>
+
+        </dl>
+</div>
+<div id="map"></div>
+<script>
+            var map;
+            function initMap() {
+                var customerLocation = { lat: @ViewBag.lat, lng: @ViewBag.Long }
+                var map = new google.maps.Map(document.getElementById('map'), { zoom: 12, center: customerLocation });
+                var marker = new google.maps.Marker({ position: customerLocation, map: map });
+            }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWCtc5OOVUTyR6fK5Xeuo2zldVJw-h3F8&callback=initMap"
+        async defer></script>
+    </body>
+</html>
+</div>

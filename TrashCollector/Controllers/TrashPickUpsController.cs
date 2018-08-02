@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollector.Models;
+using GoogleMaps.LocationServices;
 
 namespace TrashCollector.Controllers
 {
@@ -16,6 +17,27 @@ namespace TrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: TrashPickUps
+        public ActionResult GoogleMaps(int id)
+        {
+            Customer customer = db.Customers.Where(x => x.ID == id).Select(x => x).First();
+            string addressLineOneFormated = customer.addressLine1.Replace(' ', '+');
+            string addressLineTwoFormated = (!string.IsNullOrEmpty(customer.addessLine2)) ? customer.addessLine2.Replace(' ', '+') : null;
+            string streetAddress = (!string.IsNullOrEmpty(addressLineTwoFormated)) ? addressLineOneFormated + "+" + addressLineTwoFormated : addressLineOneFormated;
+            string formattedCity = customer.city.Replace(' ', '+');
+            string formattedAddressComplete = streetAddress + "," + formattedCity + "," + customer.state + "," + customer.zipCode.ToString();
+            ViewBag.Address = formattedAddressComplete;
+
+            var testAddress = customer.addressLine1 + " " + ((!string.IsNullOrEmpty(customer.addessLine2)) ? customer.addessLine2 + " " : "") + customer.city + ", " + customer.state + " " + customer.zipCode;
+            var locationService = new GoogleLocationService();
+            var point = locationService.GetLatLongFromAddress(testAddress);
+            var latitude = point.Latitude;
+            var longitude = point.Longitude;
+            ViewBag.Point = point;
+            ViewBag.Lat = latitude;
+            ViewBag.Long = longitude;
+            var trashPickUp = db.TrashPickUps.Where(x => x.CustomerID == id).Include(x => x.Customer).First();
+            return View(trashPickUp);
+        }
         public ActionResult Index()
         {
             return View(db.TrashPickUps.ToList());

@@ -48,9 +48,10 @@
             @Html.DisplayFor(modelItem => item.price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.pickUpID }) |
-            @Html.ActionLink("Details", "EmployeeViewForPickUpDetails", new { id=item.pickUpID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.pickUpID })
+            @Html.ActionLink("Map It!", "GoogleMaps", new { id = item.CustomerID }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.pickUpID }) |
+            @Html.ActionLink("Details", "EmployeeViewForPickUpDetails", new { id = item.pickUpID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.pickUpID })
         </td>
     </tr>
 }
